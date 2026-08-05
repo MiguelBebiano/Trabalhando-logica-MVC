@@ -1,0 +1,15 @@
+<h1>Editando a tarefa: {{this.title}}</h1>
+
+<form action="/tasks/edit" method="POST">
+    <input type="hidden" name="id" value="{{this.id}}">
+    <div class="controll">
+        <lable>Name:</label>
+        <input type="text" name="title" placeholder="Insira o título" value="{{this.title}}">
+        <lable>Description:</label>
+        <input type="text" name="description" placeholder="Insira a descrição">
+    </div>
+
+    <div class="form-controll">
+        <input type="submit" value="Criar">
+    </div>
+</form>

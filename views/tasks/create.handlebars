@@ -1,0 +1,14 @@
+<h1>Criar tasks</h1>
+
+<form action="/tasks/add" method="POST">
+    <div class="controll">
+        <lable>Name:</label>
+        <input type="text" name="title" placeholder="Insira o título">
+        <lable>Description:</label>
+        <textarea type="text" name="description" placeholder="Insira a descrição">{{this.description}}</textarea>
+    </div>
+
+    <div class="form-controll">
+        <input type="submit" value="Editar">
+    </div>
+</form>
