@@ -22,12 +22,7 @@ module.exports = class TaskController {
         res.redirect('/tasks')
     }
 
-    static async showTasks(req, res) {
-
-        const tasks = await Task.findAll({raw: true}) // FindAll retorna um array de objetos trazendo todos os registros no banco de dados, e o raw: true transforma em um array de objetos simples
-
-        res.render('tasks/all', { tasks })
-    }
+    
 
     static async removeTasks(req, res){
 
@@ -43,9 +38,49 @@ module.exports = class TaskController {
 
         const id = req.params.id
 
-        const task = await Task.findOne({where: {id: id}})
+        const task = await Task.findOne({where: {id: id}, raw: true})
 
         res.render('tasks/edit', {task})
+    }
+
+    static async updateTasksPost (req, res) {
+
+        const id = req.body.id
+
+        const task = {
+            title: req.body.title,
+            description: req.body.description
+        }
+
+        console.log(task)
+
+        await Task.update(task, {where: {id: id}})
+
+        res.redirect('/tasks')
+    }
+
+    static async toggleTaskStatus (req, res) {
+
+        const id = req.body.id
+
+        console.log(req.body)
+
+        const task = {
+            done: req.body.done === '0' ? true: false
+        }
+
+        console.log(task)
+
+        await Task.update(task, {where: {id: id}})
+
+        res.redirect('/tasks')
+    }
+
+    static async showTasks(req, res) {
+
+        const tasks = await Task.findAll({raw: true}) // FindAll retorna um array de objetos trazendo todos os registros no banco de dados, e o raw: true transforma em um array de objetos simples
+
+        res.render('tasks/all', { tasks })
     }
 }
 

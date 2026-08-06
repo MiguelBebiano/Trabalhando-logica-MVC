@@ -566,3 +566,8 @@ footer {
     padding-inline: 0.55rem;
   }
 }
+
+.title.done {
+  text-decoration: line-through;
+  color: #ccc;
+}

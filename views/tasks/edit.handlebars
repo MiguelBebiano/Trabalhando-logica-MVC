@@ -1,15 +1,15 @@
-<h1>Editando a tarefa: {{this.title}}</h1>
+<h1>Editando a tarefa: {{task.title}}</h1>
 
 <form action="/tasks/edit" method="POST">
-    <input type="hidden" name="id" value="{{this.id}}">
+    <input type="hidden" name="id" value="{{task.id}}">
     <div class="controll">
-        <lable>Name:</label>
-        <input type="text" name="title" placeholder="Insira o título" value="{{this.title}}">
-        <lable>Description:</label>
-        <input type="text" name="description" placeholder="Insira a descrição">
+        <label>Name:</label>
+        <input type="text" name="title" placeholder="Insira o título" value="{{task.title}}">
+        <label>Description:</label>
+        <input type="text" name="description" placeholder="Insira a descrição" value="{{task.description}}">
     </div>
 
     <div class="form-controll">
-        <input type="submit" value="Criar">
+        <input type="submit" value="Editar">
     </div>
 </form>
